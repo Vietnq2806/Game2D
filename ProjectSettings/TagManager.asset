@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerBullets
   - Enemy
+  - Energy
+  - Explosion
   layers:
   - Default
   - TransparentFX
@@ -67,8 +69,17 @@ TagManager:
   - name: Enemy
     uniqueID: 2998126777
     locked: 0
+  - name: Blood
+    uniqueID: 722753957
+    locked: 0
   - name: HpBar
     uniqueID: 1589753531
+    locked: 0
+  - name: Energy
+    uniqueID: 1246993507
+    locked: 0
+  - name: Explosion
+    uniqueID: 660951537
     locked: 0
   m_RenderingLayers:
   - Default
