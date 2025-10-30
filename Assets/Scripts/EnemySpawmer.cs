@@ -1,16 +1,29 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawmer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private GameObject[] enemies;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private float timeBetweenSpawns = 2f;
+
     void Start()
     {
-        
+        StartCoroutine(SpawnEnemyCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SpawnEnemyCoroutine()
     {
-        
+        while (true)
+        {
+            yield return new WaitForSeconds(timeBetweenSpawns);
+
+            
+            GameObject enemy = enemies[Random.Range(0, enemies.Length)];
+            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+            
+            Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+        }
     }
 }
