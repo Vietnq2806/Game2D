@@ -1,16 +1,27 @@
 using UnityEngine;
 
-public class ExplosionEnemy : MonoBehaviour
+public class ExplosionEnemy : Enemy
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject explosionPrefabs;
+
+    private void CreateExplosion()
     {
-        
+        if (explosionPrefabs != null)
+        {
+            Instantiate(explosionPrefabs, transform.position, Quaternion.identity);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Die()
     {
-        
+        CreateExplosion();
+        base.Die();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            CreateExplosion();
+        }
     }
 }
