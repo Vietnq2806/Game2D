@@ -7,13 +7,15 @@ public class BossEnemy : Enemy
     [SerializeField] private Transform firePoint;
     [SerializeField] private float speedDanThuong = 20f;
     [SerializeField] private float speedDanVongTron = 10f;
+    [SerializeField] private float hpValue = 100f;
+    [SerializeField]  private GameObject miniEnemy;
 
     protected override void Update()
     {
         base.Update();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            BanDanThuong();
+            SinhMiniEnemy();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,14 +60,15 @@ public class BossEnemy : Enemy
         }
     }
 
-    private void HoiMau()
+    private void HoiMau(float hpAmount)
     {
-        
+        currentHp = Mathf.Min(currentHp + hpAmount, maxHp);
+        UpdateHpBar();
     }
 
     private void SinhMiniEnemy()
     {
-        
+        Instantiate(miniEnemy,transform.position,Quaternion.identity);
     }
 
     private void DichChuyen()
