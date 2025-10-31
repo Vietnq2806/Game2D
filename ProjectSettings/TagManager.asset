@@ -2,8 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - PlayerBullets
+  - Enemy
+  - Energy
+  - Explosion
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -38,6 +43,44 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 2753802457
+    locked: 0
+  - name: Grass
+    uniqueID: 3626625175
+    locked: 0
+  - name: Rock
+    uniqueID: 3917757245
+    locked: 0
+  - name: Tree
+    uniqueID: 3030925539
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 356305183
+    locked: 0
+  - name: PlayerBullets
+    uniqueID: 2927562965
+    locked: 0
+  - name: Gun
+    uniqueID: 3397349487
+    locked: 0
+  - name: Enemy
+    uniqueID: 2998126777
+    locked: 0
+  - name: Blood
+    uniqueID: 722753957
+    locked: 0
+  - name: HpBar
+    uniqueID: 1589753531
+    locked: 0
+  - name: Energy
+    uniqueID: 1246993507
+    locked: 0
+  - name: Explosion
+    uniqueID: 660951537
+    locked: 0
+  m_RenderingLayers:
+  - Default
