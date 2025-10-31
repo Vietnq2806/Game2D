@@ -9,13 +9,15 @@ public class BossEnemy : Enemy
     [SerializeField] private float speedDanVongTron = 10f;
     [SerializeField] private float hpValue = 100f;
     [SerializeField]  private GameObject miniEnemy;
+    [SerializeField] private float skillcooldwon = 2f;
+    private float nextSkillTime = 0f;
 
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.time > nextSkillTime)
         {
-            SinhMiniEnemy();
+            SuDungSkill();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,6 +75,38 @@ public class BossEnemy : Enemy
 
     private void DichChuyen()
     {
-        
+        if (player != null)
+        {
+            transform.position = player.transform.position;
+        }
+    }
+
+    private void ChonSkillNgauNhien()
+    {
+        int randomSkill = UnityEngine.Random.Range(0, 5);
+        switch (randomSkill)
+        {
+            case 0:
+                BanDanThuong();
+                break;
+            case 1:
+                BanDanVongTron();
+                break;
+            case 2:
+                HoiMau(hpValue);
+                break;
+            case 3:
+                SinhMiniEnemy();
+                break;
+            case 4:
+                DichChuyen();
+                break;
+        }
+    }
+
+    private void SuDungSkill()
+    {
+        nextSkillTime = Time.time + skillcooldwon;
+        ChonSkillNgauNhien();
     }
 }
