@@ -11,6 +11,7 @@ public class BossEnemy : Enemy
     [SerializeField]  private GameObject miniEnemy;
     [SerializeField] private float skillcooldwon = 2f;
     private float nextSkillTime = 0f;
+    [SerializeField] private GameObject usbPrefab;
 
     protected override void Update()
     {
@@ -19,6 +20,12 @@ public class BossEnemy : Enemy
         {
             SuDungSkill();
         }
+    }
+
+    protected override void Die()
+    {
+        Instantiate(usbPrefab, transform.position, Quaternion.identity);
+        base.Die();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
