@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private int maxAmmo = 30;
     public int currentAmmo;
     [SerializeField] private TextMeshProUGUI ammoText;
+    [SerializeField] private AudioManager audioManager;
     void Start()
     {
         currentAmmo = maxAmmo;
@@ -52,6 +53,7 @@ public class Gun : MonoBehaviour
             Instantiate(bulletsPrefab, firePos.position, firePos.rotation);
             currentAmmo--;
             UpdateAmmoText();
+            audioManager.PlayShotSound();
         }
     }
 
@@ -63,6 +65,7 @@ public class Gun : MonoBehaviour
             currentAmmo =  maxAmmo;
             UpdateAmmoText();
         }
+        audioManager.PlayReloadSound();
     }
 
     private void UpdateAmmoText()
