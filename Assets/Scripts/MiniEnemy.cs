@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class MiniEnemy : MonoBehaviour
+public class MiniEnemy : Enemy
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            
+            player.TakeDamage(enterDamage);
         }
     }
 
@@ -14,7 +14,7 @@ public class MiniEnemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            
+            player.TakeDamage(stayDamage);
         }
     }
 }
