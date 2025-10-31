@@ -64,8 +64,8 @@ public class Gun : MonoBehaviour
         {
             currentAmmo =  maxAmmo;
             UpdateAmmoText();
+            audioManager.PlayReloadSound();
         }
-        audioManager.PlayReloadSound();
     }
 
     private void UpdateAmmoText()
